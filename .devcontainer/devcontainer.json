@@ -1,0 +1,30 @@
+{
+    "name": "LaTeX",
+    "dockerComposeFile": [
+        "docker-compose.yml"
+    ],
+    "service": "vscode",
+    "runServices": [
+        "vscode"
+    ],
+    "shutdownAction": "stopCompose",
+    "workspaceFolder": "/workspace",
+    "postCreateCommand": "git clone https://fortierq@github.com/fortierq/texmf.git ~/texmf",
+    "extensions": [
+        "james-yu.latex-workshop",
+        "eamodio.gitlens",
+    ],
+    "settings": {
+        // General settings
+        "files.eol": "\n",
+        // Latex settings
+        "latex-workshop.chktex.enabled": true,
+        "latex-workshop.latex.clean.subfolder.enabled": true,
+        "latex-workshop.latex.autoClean.run": "onBuilt",
+        "latex-workshop.latex.recipe.default": "latexmk (lualatex)",
+        "editor.formatOnSave": true,
+        "files.associations": {
+            "*.tex": "latex"
+        },
+    }
+}
