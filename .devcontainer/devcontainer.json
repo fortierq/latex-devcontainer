@@ -9,7 +9,8 @@
     ],
     "shutdownAction": "stopCompose",
     "workspaceFolder": "/workspace",
-    "postCreateCommand": "git clone https://fortierq@github.com/fortierq/texmf.git ~/texmf",
+    "postCreateCommand": "sudo git clone https://fortierq@github.com/fortierq/texmf.git /workspace/texmf",
+    "postStartCommand": "cd /workspace/texmf; git pull",
     "extensions": [
         "james-yu.latex-workshop",
         "eamodio.gitlens",

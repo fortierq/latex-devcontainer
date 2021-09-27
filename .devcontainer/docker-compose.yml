@@ -4,7 +4,7 @@ services:
   vscode:
     image: qfortier/latexdevcontainer-minted:1.0.0
     volumes:
-      - ../:/workspace
+      - ../:/workspace/src
       # Docker socket to access Docker server
       - /var/run/docker.sock:/var/run/docker.sock
       # SSH directory
@@ -15,4 +15,5 @@ services:
       - ~/.gitconfig:/root/.gitconfig
     environment:
       - TZ=
+      - TEXMFHOME=/workspace/texmf
     entrypoint: zsh -c "while sleep 1000; do :; done"
