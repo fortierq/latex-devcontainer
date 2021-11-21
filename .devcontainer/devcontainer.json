@@ -3,29 +3,52 @@
     "dockerComposeFile": [
         "docker-compose.yml"
     ],
-    "service": "vscode",
+    "service": "latex",
     "runServices": [
-        "vscode"
+        "latex"
     ],
     "shutdownAction": "stopCompose",
     "workspaceFolder": "/workspace",
-    "postCreateCommand": "sudo chown -R vscode /workspace; git clone https://fortierq@github.com/fortierq/texmf.git /workspace/texmf",
-    "postStartCommand": "cd /workspace/texmf; git pull",
+    "postCreateCommand": "sudo chown -R vscode /workspace; git clone ssh://git@github.com/fortierq/texmf.git /workspace/texmf; git clone ssh://git@github.com/fortierq/tikz.git /workspace/tikz",
+    "postStartCommand": "cd /workspace/texmf; git pull; cd /workspace/tikz; git pull",
     "extensions": [
         "james-yu.latex-workshop",
+        // Git
         "eamodio.gitlens",
     ],
     "settings": {
         // General settings
         "files.eol": "\n",
         // Latex settings
-        "latex-workshop.chktex.enabled": true,
+        "latex-workshop.chktex.enabled": false,
         "latex-workshop.latex.clean.subfolder.enabled": true,
         "latex-workshop.latex.autoClean.run": "onBuilt",
-        "latex-workshop.latex.recipe.default": "latexmk (lualatex)",
+        "latex-workshop.latex.recipe.default": "lualatex",
+        "latex-workshop.latex.recipes": [
+            {
+                "name": "lualatex",
+                "tools": [
+                    "lualatex"
+                ]
+            }
+        ],
+        "latex-workshop.latex.tools": [
+            {
+                "name": "lualatex",
+                "command": "lualatex",
+                "args": [
+                    "-interaction=nonstopmode",
+                    "-file-line-error",
+                    "-outdir=%OUTDIR%",
+                    "--shell-escape",
+                    "%DOC%"
+                ],
+                "env": {}
+            }
+        ],
         "editor.formatOnSave": true,
         "files.associations": {
             "*.tex": "latex"
         },
-    }
+    },
 }
