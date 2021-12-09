@@ -8,7 +8,7 @@
         "latex"
     ],
     "shutdownAction": "stopCompose",
-    "workspaceFolder": "/workspace",
+    "workspaceFolder": "/workspace", # fix pdf policy at /etc/ImageMagick-6/policy.xml 
     "postCreateCommand": "sudo chown -R vscode /workspace; git clone ssh://git@github.com/fortierq/texmf.git /workspace/texmf; sudo apt install imagemagick; git clone ssh://git@github.com/fortierq/tikz.git /workspace/tikz",
     "postStartCommand": "cd /workspace/texmf; git pull; cd /workspace/tikz; git pull",
     "extensions": [
