@@ -9,7 +9,7 @@
     ],
     "shutdownAction": "stopCompose",
     "workspaceFolder": "/workspace", # fix pdf policy at /etc/ImageMagick-6/policy.xml 
-    "postCreateCommand": "sudo chown -R vscode /workspace; git clone ssh://git@github.com/fortierq/texmf.git /workspace/texmf; sudo apt install imagemagick; git clone ssh://git@github.com/fortierq/tikz.git /workspace/tikz",
+    "postCreateCommand": "git clone ssh://git@github.com/fortierq/texmf.git /workspace/texmf; git clone ssh://git@github.com/fortierq/tikz.git /workspace/tikz",
     "postStartCommand": "cd /workspace/texmf; git pull; cd /workspace/tikz; git pull",
     "extensions": [
         "james-yu.latex-workshop",
@@ -23,8 +23,14 @@
         "latex-workshop.chktex.enabled": false,
         "latex-workshop.latex.clean.subfolder.enabled": true,
         "latex-workshop.latex.autoClean.run": "onBuilt",
-        "latex-workshop.latex.recipe.default": "lualatex",
+        "latex-workshop.latex.recipe.default": "lastUsed",
         "latex-workshop.latex.recipes": [
+            {
+                "name": "luaescape",
+                "tools": [
+                    "luaescape"
+                ]
+            },
             {
                 "name": "lualatex",
                 "tools": [
@@ -34,13 +40,24 @@
         ],
         "latex-workshop.latex.tools": [
             {
+                "name": "luaescape",
+                "command": "lualatex",
+                "args": [
+                    "-interaction=nonstopmode",
+                    "-file-line-error",
+                    "-shell-escape",
+                    "-halt-on-error",
+                    "%DOC%"
+                ],
+                "env": {}
+            },
+            {
                 "name": "lualatex",
                 "command": "lualatex",
                 "args": [
                     "-interaction=nonstopmode",
                     "-file-line-error",
-                    "-outdir=%OUTDIR%",
-                    "--shell-escape",
+                    "-halt-on-error",
                     "%DOC%"
                 ],
                 "env": {}

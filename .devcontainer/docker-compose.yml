@@ -1,7 +1,7 @@
 version: "3"
 
 services:
-  vscode:
+  latex:
     image: qfortier/latexdevcontainer-minted:1.0.0
     volumes:
       - ../:/workspace/src
