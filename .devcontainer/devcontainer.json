@@ -13,8 +13,8 @@
     "postStartCommand": "cd /workspace/texmf; git pull; cd /workspace/tikz; git pull",
     "extensions": [
         "james-yu.latex-workshop",
-        // Git
         "eamodio.gitlens",
+        "christian-kohler.path-intellisense"
     ],
     "settings": {
         // General settings
