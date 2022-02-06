@@ -16,4 +16,4 @@ services:
     environment:
       - TZ=
       - TEXMFHOME=/workspace/texmf
-    entrypoint: zsh -c "while sleep 1000; do :; done"
+    entrypoint: ["zsh", "-c", "while sleep 1000; do :; done"]
