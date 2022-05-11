@@ -1,1 +1,0 @@
-FROM qfortier/latexdevcontainer-minted:1.0.0
