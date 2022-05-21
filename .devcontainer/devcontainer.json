@@ -63,7 +63,7 @@
                 "env": {}
             }
         ],
-        "editor.formatOnSave": true,
+        "editor.formatOnSave": false,
         "files.associations": {
             "*.tex": "latex"
         },
