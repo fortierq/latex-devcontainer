@@ -14,7 +14,8 @@
     "extensions": [
         "james-yu.latex-workshop",
         "eamodio.gitlens",
-        "christian-kohler.path-intellisense"
+        "christian-kohler.path-intellisense",
+        "GitHub.copilot"
     ],
     "settings": {
         // General settings
