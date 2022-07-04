@@ -9,8 +9,8 @@
     ],
     "shutdownAction": "stopCompose",
     "workspaceFolder": "/workspace",
-    "postCreateCommand": "grep -v PDF /etc/ImageMagick-6/policy.xml > /tmp/policy.xml; sudo rm /etc/ImageMagick-6/policy.xml; sudo mv /tmp/policy.xml /etc/ImageMagick-6/policy.xml; sudo chown -R vscode /workspace; git config --global user.email 'qpfortier@gmail.com'; git config --global user.name 'Quentin Fortier'; git clone https://github.com/fortierq/texmf.git /workspace/texmf; git clone https://github.com/fortierq/tikz.git /workspace/tikz",
-    "postStartCommand": "cd /workspace/texmf; git pull; cd /workspace/tikz; git pull",
+    "postCreateCommand": "grep -v PDF /etc/ImageMagick-6/policy.xml > /tmp/policy.xml; sudo rm /etc/ImageMagick-6/policy.xml; sudo mv /tmp/policy.xml /etc/ImageMagick-6/policy.xml; sudo chown -R vscode /workspace; git config --global user.email 'qpfortier@gmail.com'; git config --global user.name 'Quentin Fortier'; git clone git@github.com:fortierq/texmf.git /workspace/texmf; git clone git@github.com:fortierq/tikz /workspace/tikz; git clone git@github.com:fortierq/cpge-exos-info.git /workspace/cpge-exos-info",
+    "postStartCommand": "cd /workspace/texmf; git pull; cd /workspace/tikz; git pull; cd /workspace/cpge-exos-info; git pull",
     "extensions": [
         "james-yu.latex-workshop",
         "eamodio.gitlens",
